@@ -1,0 +1,15 @@
+﻿? diff p.txt p2.txt
+116c116
+<           <span style="vertical-align: middle;">727人がチャット参加中!</span>
+---
+>           <span style="vertical-align: middle;">730人がチャット参加中!</span>
+128c128
+<                 <li><img src="http://drrrkari.com/css/icon_girl.png" alt="girl" class="selected"></li>
+---
+> <div class="error">時間切れエラーです。もう一度お試しください。</div>                <li><img src="http://drrrkari.com/css/icon_girl.png" alt="girl" class="selected"></li>
+154c154
+<               <input type="hidden" name="token" value="2d39a2feeada3d2b8c63d8bcccecfbb1">
+---
+>               <input type="hidden" name="token" value="2e08852711112235d08c365f2d411239">
+221a222
+>
