@@ -1,19 +1,34 @@
-﻿import requests
+# coding: utf-8
+import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+import time
 
 session = requests.session()
+url_login = "http://drrrkari.com/#"
+res_1 = session.get(
+        url=url_login
+        )
+
+cookies = res_1.cookies
+bs = BeautifulSoup(res_1.text, 'html.parser')
+token = bs.find(attrs={'name':'token'}).get('value')
+time.sleep(1)
 
 login_info = {
     "language":"jp-JP",
     "icon":"setton",
     "name":"nyaharo",
     "login":"login",
-    "token":"35cb62b76541bdb25b7c8976a52e97d2"
+    "token":token
 }
-
-url_login = "http://drrrkari.com/#"
-res = session.post(url_login, data=login_info)
+res = session.post(
+                url_login,
+                data=login_info
+        )
 res.raise_for_status()
-
+res.encoding = res.apparent_encoding 
 print(res.text)
+
+f = open('myfile.txt', 'w', encoding='UTF8')
+f.write(res.text)
+f.close()
